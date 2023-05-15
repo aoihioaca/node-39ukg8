@@ -1,5 +1,32 @@
-import type { Handle } from '@sveltejs/kit'
-import { minify, type Options } from 'html-minifier-terser'
+import Axios from 'axios'
+import { setupCache, buildStorage } from 'axios-cache-interceptor'
+import { readFile, rm, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import path from 'node:path'
+import { type Options, minify } from 'html-minifier-terser'
+
+function getPath(key: string) {
+  return path.join('cache', key + '.json')
+}
+
+export const axios = setupCache(Axios, {
+  storage: buildStorage({
+    async find(key) {
+      if (existsSync(getPath(key))) {
+        return JSON.parse(await readFile(getPath(key), 'utf-8'))
+      }
+    },
+    async set(key, value) {
+      console.log(
+        `cache written: ${key} - ${JSON.stringify(value).slice(0, 100)}`
+      )
+      await writeFile(getPath(key), JSON.stringify(value))
+    },
+    async remove(key) {
+      await rm(getPath(key))
+    }
+  })
+})
 
 const minifyOptions: Options = {
   collapseWhitespace: true,
@@ -23,15 +50,14 @@ const minifyOptions: Options = {
   minifyJS: true
 }
 
-export const handle: Handle = async ({ resolve, event }) => {
+export const handle = async ({ event, resolve }) => {
   const response = await resolve(event)
 
-  if (response.headers.get('Content-Type') === 'text/html') {
+  if (response.headers.get('Content-Type') === 'text/html')
     return new Response(await minify(await response.text(), minifyOptions), {
       status: response.status,
-      headers: { 'content-type': 'text/html' }
+      headers: { 'Content-Type': 'text/html' }
     })
-  }
 
   return response
 }

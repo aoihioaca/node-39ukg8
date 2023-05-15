@@ -1,24 +1,36 @@
 <script lang="ts">
+  import ExtImg from '$lib/ExtImg.svelte'
   import Title from '$lib/Title.svelte'
 </script>
 
-<template lang="pug">
-  Title コース
-  .flex.flex-col.gap-12
-    .flex.gap-5
-      img.object-cover.w-1.rounded-xl(
-        src="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/images/bunkasai.jpg"
-        class="basis-5/12"
-      )
-      .shadow-lg.rounded-xl.bg-red-200.p-5(class="hover:shadow-md basis-7/12")
-        h1.font-bold.text-xl.mb-3 情報メディアコース
-        p 説明
-    .flex.gap-5
-      img.object-cover.w-1.rounded-xl(
-        src="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/images/bunkasai.jpg"
-        class="basis-5/12"
-      )
-      .shadow-lg.rounded-xl.bg-red-200.p-5(class="hover:shadow-md basis-7/12")
-        h1.font-bold.text-xl.mb-3 電気テクノロジーコース
-        p 説明
-</template>
+<Title>コース</Title>
+<div flex="~ col" gap12>
+  <flex gap5>
+    <ExtImg
+      src="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/images/bunkasai.jpg"
+      alt="Image of cultural festival"
+      object-cover
+      w1
+      rd-xl
+      basis="5/12"
+    />
+    <div shadow="lg hover:md" rd-xl bg-red200 p5 basis="7/12">
+      <h1 fwbold text-xl mb3>情報メディアコース</h1>
+      <p>説明</p>
+    </div>
+  </flex>
+  <flex gap5>
+    <ExtImg
+      src="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/images/bunkasai.jpg"
+      alt="Image of cultural festival"
+      object-cover
+      w1
+      rd-xl
+      basis="5/12"
+    />
+    <div shadow="lg hover:md" rd-xl bg-red200 p5 basis="7/12">
+      <h1 fwbold text-xl mb3>電気テクノロジーコース</h1>
+      <p>説明</p>
+    </div>
+  </flex>
+</div>

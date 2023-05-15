@@ -1,0 +1,6 @@
+parser: sugarss
+plugins:
+  '@unocss/postcss':
+    content: ['**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}']
+  postcss-preset-env: { stage: 0 }
+  cssnano: { preset: 'advanced' }
