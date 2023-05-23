@@ -59,7 +59,7 @@
           flex
           items-center
           gap1
-          hover:bg-red400>もっと読む<i-mdi:arrow-right /></button
+          hover:bg-red400>もっと読む<i-mdi:arrow-right text-red400 /></button
         >
       </a>
     </div>
@@ -108,8 +108,7 @@
           flex
           items-center
           gap1
-          hover:bg-green400>全コースを見る<i-mdi:arrow-right /></button
-        >
+          hover:bg-green400>全コースを見る<i-mdi:arrow-right text-green400 /></button>
       </a>
     </div>
     <div flex="~ col" items-center gap3>
@@ -150,7 +149,7 @@
           flex
           items-center
           gap1
-          hover:bg-amber400>すべて見る<i-mdi:arrow-right /></button
+          hover:bg-amber400>すべて見る<i-mdi:arrow-right text-amber400 /></button
         >
       </a>
     </div>
