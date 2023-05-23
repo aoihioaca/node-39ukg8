@@ -36,7 +36,7 @@
         drop-shadow="[0_3px_3px_rgba(0,0,0,0.8)]"
         mt1
       >
-        鋼に感謝を込めて
+        鋼に魂を込めて
       </h3>
     </div>
   </absolute>
@@ -120,9 +120,10 @@
           <a
             href="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/{item.id}.html"
             flex
-            py2
+            p2
             gap3
             items-center
+            hover:bg-slate-200
           >
             <div text-slate-600 flex w10 h9 justify-between class="date">
               <sup w="50%" text-center fwbold text-xl>
