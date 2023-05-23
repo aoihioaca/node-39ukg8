@@ -3,6 +3,7 @@
 
   import { page } from '$app/stores'
   import type { PageData } from './$types'
+  import ExtLink from '$lib/ExtLink.svelte'
 
   export let data: PageData
 
@@ -14,12 +15,12 @@
   {@html articleHTML}
 </article>
 <div h3 />
-<a
-  class="link"
+<ExtLink
+  textLink
   href="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/{$page.params.slug}.html"
 >
   View original
-</a>
+</ExtLink>
 
 <!-- [plugin:vite:css] [postcss] /home/user/Documents/latest/src/routes/article/[...slug]/+page.svelte?svelte&type=style&lang.css:1:16: Unnecessary curly bracket -->
 <!-- <style lang="sugarss">

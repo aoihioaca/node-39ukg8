@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { mapUnoProps } from './map_uno'
+
   export let src: string
 </script>
 
@@ -7,9 +9,5 @@
 <!-- svelte-ignore a11y-missing-attribute -->
 <img
   src="https://external-content.duckduckgo.com/iu/?u={encodeURIComponent(src)}"
-  {...Object.fromEntries(
-    Object.entries($$restProps).map(entry => {
-      return [entry[0], entry[1] === true ? '' : entry[1]]
-    })
-  )}
+  {...mapUnoProps($$restProps)}
 />

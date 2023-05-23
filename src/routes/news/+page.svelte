@@ -2,6 +2,7 @@
   import Title from '$lib/Title.svelte'
   import { date } from '$lib/date'
   import type { PageData } from '../$types'
+  import ExtLink from '$lib/ExtLink.svelte'
 
   export let data: PageData
 
@@ -23,7 +24,7 @@
     <div divide-y-1 divide-slate400>
       {#each monthItem.items as item}
         <!-- href="/article/{item.id}" -->
-        <a
+        <ExtLink
           href="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/{item.id}.html"
           flex
           py2
@@ -32,15 +33,15 @@
         >
           <p text-slate-600 w10 text-right>{date(item.date).date}日</p>
           <p text-lg>{item.title}</p>
-        </a>
+        </ExtLink>
       {/each}
     </div>
   {/each}
 </div>
 
-<a
-  class="link"
+<ExtLink
+  textLink
   href="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/shinchaku/"
 >
   View original
-</a>
+</ExtLink>

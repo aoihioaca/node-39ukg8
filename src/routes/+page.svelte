@@ -3,8 +3,11 @@
   import ExtImg from '$lib/ExtImg.svelte'
   import { date } from '$lib/date'
   import type { PageData } from './$types'
+  import ExtLink from '$lib/ExtLink.svelte'
 
   export let data: PageData
+
+  let loadYouTube: boolean
 </script>
 
 <div relative hscreen>
@@ -19,26 +22,24 @@
     brightness-125
     select-none
   />
-  <absolute wfull top="1/2" md:left="1/4" flex="~ col" lt-md:items-center>
-    <div>
-      <h1
-        text-7xl
-        fwmedium
-        text-slate300
-        drop-shadow="[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
-      >
-        試される大地
-      </h1>
-      <h3
-        text-4xl
-        fwmedium
-        text-slate100
-        drop-shadow="[0_3px_3px_rgba(0,0,0,0.8)]"
-        mt1
-      >
-        鋼に魂を込めて
-      </h3>
-    </div>
+  <absolute top="1/2" md:left="1/4" flex="~ col" lt-md:items-center>
+    <h1
+      text-7xl
+      fwmedium
+      text-slate300
+      drop-shadow="[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
+    >
+      試される大地
+    </h1>
+    <h3
+      text-4xl
+      fwmedium
+      text-slate100
+      drop-shadow="[0_3px_3px_rgba(0,0,0,0.8)]"
+      mt1
+    >
+      鋼に魂を込めて
+    </h3>
   </absolute>
 </div>
 <Container>
@@ -118,7 +119,7 @@
       <bg-amber-300 w32 h1 />
       <div flex="~ col" divide-y-1 divide-slate400>
         {#each data.news as item}
-          <a
+          <ExtLink
             href="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/{item.id}.html"
             flex
             p2
@@ -138,7 +139,7 @@
               <p text-lg fwbold>{item.title}</p>
               <p line-clamp-1>{item.summary}<span select-none>…</span></p>
             </div>
-          </a>
+          </ExtLink>
         {/each}
       </div>
       <a href="/news">
@@ -156,5 +157,55 @@
         >
       </a>
     </div>
+  </div>
+  <div flex="~ col" items-center gap3>
+    <h1 text-4xl fwbold>公式紹介動画</h1>
+    <bg-slate-300 w32 h1 />
+
+    {#if !loadYouTube}
+      <relative ma style="width: 560px; height: 315px;">
+        <ExtImg
+          absolute
+          brightness-30
+          src="https://i.ytimg.com/vi/dGWKDqOEzbQ/maxresdefault.jpg"
+        />
+        <absolute
+          text-white
+          hfull
+          wfull
+          flex="~ col"
+          items-center
+          justify-center
+          gap3
+          text-center
+          cursor-pointer
+          on:dblclick={() => (loadYouTube = true)}
+        >
+          <i-mdi:play scale-220 />
+          <div>
+            <p>ダブルクリックでYouTubeの外部プレイヤーが読み込まれます</p>
+            <p text-sm>(JavaScriptが必要です)</p>
+          </div>
+          <flex gap3>
+            <ExtLink
+              textLink
+              href="https://www.youtube.com/watch?v=dGWKDqOEzbQ"
+            >
+              YouTubeで開く
+            </ExtLink>
+            <ExtLink textLink href="https://policies.google.com/privacy">
+              プライバシーポリシー
+            </ExtLink>
+          </flex>
+        </absolute>
+      </relative>
+    {:else}
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/dGWKDqOEzbQ"
+        title="YouTube video player"
+      />
+    {/if}
   </div>
 </Container>

@@ -38,7 +38,7 @@ const minifyOptions: Options = {
   removeAttributeQuotes: true,
   removeComments: true,
   removeEmptyAttributes: true,
-  removeEmptyElements: true,
+  // removeEmptyElements: true,
   removeOptionalTags: true,
   removeRedundantAttributes: true,
   removeScriptTypeAttributes: true,

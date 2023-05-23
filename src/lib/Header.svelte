@@ -1,5 +1,6 @@
 <script lang="ts">
   import { navigating } from '$app/stores'
+  import ExtLink from '$lib/ExtLink.svelte'
 
   const links = [
     {

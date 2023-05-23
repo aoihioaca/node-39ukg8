@@ -1,5 +1,6 @@
 <script lang="ts">
   import Container from '$lib/Container.svelte'
+  import ExtLink from '$lib/ExtLink.svelte'
 </script>
 
 <footer bg-red100 mt3 p5>
@@ -20,12 +21,12 @@
         </p>
       </div>
       <div flex scale-220 gap1>
-        <a href="https://www.youtube.com/@user-kawasakikoka">
+        <ExtLink href="https://www.youtube.com/@user-kawasakikoka">
           <div i-mdi="youtube" text="!red500 !hover:red" />
-        </a>
-        <a href="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/">
+        </ExtLink>
+        <ExtLink href="https://www.pen-kanagawa.ed.jp/kawasakikoka-th/">
           <div i-mdi="earth" text="!red500 !hover:red" />
-        </a>
+        </ExtLink>
       </div>
     </flex>
   </Container>
