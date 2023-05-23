@@ -1,6 +1,6 @@
-import { parseHTML } from 'linkedom'
 import { axios } from '../../hooks.server'
 import { getArticle } from './article'
+import { parseHTML } from 'linkedom'
 
 let news: NewsItem[] = []
 export let newsLastModified: string

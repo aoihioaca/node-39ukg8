@@ -1,9 +1,9 @@
 import Axios from 'axios'
-import { setupCache, buildStorage } from 'axios-cache-interceptor'
-import { readFile, rm, writeFile } from 'node:fs/promises'
-import { existsSync } from 'node:fs'
-import path from 'node:path'
+import { buildStorage, setupCache } from 'axios-cache-interceptor'
 import { type Options, minify } from 'html-minifier-terser'
+import { existsSync } from 'node:fs'
+import { readFile, rm, writeFile } from 'node:fs/promises'
+import path from 'node:path'
 
 function getPath(key: string) {
   return path.join('cache', key + '.json')
