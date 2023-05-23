@@ -1,7 +1,8 @@
 <script lang="ts">
+  import xss from 'xss'
+
   import { page } from '$app/stores'
   import type { PageData } from './$types'
-  import xss from 'xss'
 
   export let data: PageData
 

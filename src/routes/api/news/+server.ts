@@ -1,5 +1,6 @@
-import { getNews, newsLastModified } from '$lib/server/news'
 import { json } from '@sveltejs/kit'
+
+import { getNews, newsLastModified } from '$lib/server/news'
 
 export async function GET({ url }) {
   let news = await getNews()

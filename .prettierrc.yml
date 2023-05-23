@@ -5,3 +5,4 @@ arrowParens: avoid
 importOrderSeparation: true
 importOrderSortSpecifiers: true
 importOrderGroupNamespaceSpecifiers: true
+importOrder: ['^node:', '<THIRD_PARTY_MODULES>', '^[.$]']
